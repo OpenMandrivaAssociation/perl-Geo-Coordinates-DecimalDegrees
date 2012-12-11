@@ -1,19 +1,19 @@
 %define upstream_name    Geo-Coordinates-DecimalDegrees
 %define upstream_version 0.08
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Convert between degrees/minutes/seconds and decimal degrees
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Convert between degrees/minutes/seconds and decimal degrees
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Test::Number::Delta)
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Test::Number::Delta)
+BuildArch:	noarch
 
 %description
 Latitudes and longitudes are most often presented in two common formats:
@@ -29,23 +29,31 @@ This module provides functions for converting between these two formats.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.80.0-2mdv2011.0
++ Revision: 654967
+- rebuild for updated spec-helper
+
+* Mon Jun 01 2009 Jérôme Quelin <jquelin@mandriva.org> 0.80.0-1mdv2011.0
++ Revision: 381784
+- adding missing buildrequires:
+- import perl-Geo-Coordinates-DecimalDegrees
+
+
+* Sun May 31 2009 cpan2dist 0.08-1mdv
+- initial mdv release, generated with cpan2dist
 
