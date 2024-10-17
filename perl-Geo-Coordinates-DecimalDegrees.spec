@@ -8,7 +8,7 @@ Release:	3
 Summary:	Convert between degrees/minutes/seconds and decimal degrees
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Geo/Geo-Coordinates-DecimalDegrees-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
