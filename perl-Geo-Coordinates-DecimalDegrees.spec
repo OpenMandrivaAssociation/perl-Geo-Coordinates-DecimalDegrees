@@ -1,15 +1,15 @@
 %define upstream_name    Geo-Coordinates-DecimalDegrees
-%define upstream_version 0.09
+%define upstream_version 0.11
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Convert between degrees/minutes/seconds and decimal degrees
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Geo/Geo-Coordinates-DecimalDegrees-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/Geo-Coordinates-DecimalDegrees
+Source0:	https://cpan.metacpan.org/authors/id/W/WA/WALTMAN/Geo-Coordinates-DecimalDegrees-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
